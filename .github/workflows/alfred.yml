@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+    paths:
+      - 'workflow/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: workflow/oss.alfredworkflow
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+#          Unexpected input(s) 'upload_url', valid inputs are ['body', 'body_path', 'name', 'tag_name', 'draft', 'prerelease', 'files', 'fail_on_unmatched_files', 'repository', 'token', 'target_commitish', 'discussion_category_name', 'generate_release_notes', 'append_body']
