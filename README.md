@@ -10,7 +10,9 @@
 
 ## Usage/Examples
 
-复制图片后使用自定义的`oss-alfredowrkflow关键字`，即可上传图片到OSS
+~~复制图片后使用自定义的`oss-alfredowrkflow关键字`，即可上传图片到OSS~~
+
+使用Universal Actions上传文件
 
 
 ## Features
