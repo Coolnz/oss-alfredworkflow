@@ -34,6 +34,9 @@ v1.3.0之后改为golang实现
 - 自定义文件名
 - 自定义后缀
 - ~~可配置默认返回格式~~
+- 内置压缩图片，上传图片时自动压缩 [alfredapp/tinypng-workflow: Compress images via TinyPNG](https://github.com/alfredapp/tinypng-workflow/)
+
+
 
 ## Environment Variables
 

@@ -28,6 +28,7 @@ func UploadFile() {
 		bucketName      = wf.Config.GetString("bucket_name")
 		endpoint        = wf.Config.GetString("endpoint")
 		prefix          = wf.Config.GetString("prefix")
+		cdn             = wf.Config.GetString("cdn")
 	)
 
 	args := wf.Args()
@@ -52,7 +53,8 @@ func UploadFile() {
 		wf.FatalError(err)
 	}
 
-	url := fmt.Sprintf("https://%s.%s/%s", bucketName, endpoint, ossFile)
+	// url := fmt.Sprintf("https://%s.%s/%s", bucketName, endpoint, ossFile)
+	url := fmt.Sprintf("https://%s/%s", cdn, ossFile)
 	ss := fmt.Sprintf("![%s](%s)", filename, url)
 	// wf.NewItem(ss).Arg(ss).Valid(true).Autocomplete(ss).Icon(&aw.Icon{Value: "icon.png"})
 	// wf.SendFeedback()
